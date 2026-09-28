@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cabinet médical du Dr. Simplice Évrard NAMBOY à Salé Bettana. Médecine générale, urgences, ECG, échographie, suivi de grossesse, HTA, diabète, maladies tropicales et services de santé.">
+  <meta name="theme-color" content="#0f766e">
+  <title>Dr. NAMBOY Evrard Simplice | Médecin Généraliste et Urgentiste</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:#0f766e;
+      --primary-dark:#115e59;
+      --accent:#14b8a6;
+      --ink:#16302e;
+      --muted:#64748b;
+      --bg:#f5fbfa;
+      --white:#fff;
+      --border:#dbe9e7;
+      --shadow:0 18px 50px rgba(15,118,110,.12);
+      --radius:22px;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:Inter, sans-serif;
+      color:var(--ink);
+      background:var(--white);
+      line-height:1.65;
+    }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    .topbar {
+      background:var(--ink); color:#eafffb; font-size:.88rem;
+      padding:9px 0;
+    }
+    .topbar .container { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    header {
+      position:sticky; top:0; z-index:10; background:rgba(255,255,255,.94);
+      backdrop-filter:blur(12px); border-bottom:1px solid rgba(219,233,231,.9);
+    }
+    nav { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:25px; }
+    .logo { display:flex; align-items:center; gap:12px; font-family:Manrope,sans-serif; font-weight:800; }
+    .logo-mark {
+      width:42px; height:42px; border-radius:13px; display:grid; place-items:center;
+      background:var(--primary); color:#fff; font-size:1.25rem;
+    }
+    .logo span:last-child { display:block; line-height:1.15; }
+    .logo small { display:block; color:var(--muted); font:500 .68rem Inter,sans-serif; margin-top:3px; }
+    .nav-links { display:flex; gap:26px; align-items:center; font-size:.92rem; font-weight:600; }
+    .nav-links a:hover { color:var(--primary); }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:13px 19px; border-radius:12px; font-weight:700; border:1px solid transparent;
+      transition:.2s ease;
+    }
+    .btn-primary { background:var(--primary); color:#fff; box-shadow:0 8px 20px rgba(15,118,110,.2); }
+    .btn-primary:hover { background:var(--primary-dark); transform:translateY(-1px); }
+    .btn-light { background:#fff; color:var(--primary); border-color:var(--border); }
+    .btn-light:hover { border-color:var(--accent); }
+    .hero {
+      background:
+        radial-gradient(circle at 82% 18%, rgba(20,184,166,.17), transparent 30%),
+        linear-gradient(135deg,#effaf8 0%,#fff 58%);
+      padding:88px 0 76px;
+    }
+    .hero-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:55px; align-items:center; }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border-radius:999px;
+      background:#dff7f3; color:var(--primary-dark); font-size:.78rem; font-weight:800; text-transform:uppercase;
+      letter-spacing:.07em;
+    }
+    h1,h2,h3 { font-family:Manrope,sans-serif; line-height:1.18; }
+    h1 { font-size:clamp(2.3rem,5vw,4.5rem); letter-spacing:-.045em; margin:18px 0 20px; }
+    h1 span { color:var(--primary); }
+    .hero p { color:#526765; max-width:650px; font-size:1.08rem; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .hero-card {
+      background:#fff; border:1px solid var(--border); border-radius:28px; padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .doctor-icon {
+      width:78px; height:78px; border-radius:22px; background:#dff7f3; color:var(--primary);
+      display:grid; place-items:center; font-size:2rem; margin-bottom:20px;
+    }
+    .hero-card h3 { font-size:1.45rem; margin-bottom:8px; }
+    .hero-card p { font-size:.93rem; }
+    .availability { display:flex; gap:10px; align-items:center; margin-top:22px; padding-top:20px; border-top:1px solid var(--border); }
+    .dot { width:10px; height:10px; border-radius:50%; background:#22c55e; }
+    section { padding:88px 0; }
+    .section-head { max-width:720px; margin-bottom:42px; }
+    .section-head .eyebrow { margin-bottom:14px; }
+    .section-head h2 { font-size:clamp(2rem,4vw,3rem); margin-bottom:13px; }
+    .section-head p { color:var(--muted); }
+    .services { background:var(--bg); }
+    .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .service {
+      background:#fff; border:1px solid var(--border); padding:25px; border-radius:var(--radius);
+      transition:.2s ease;
+    }
+    .service:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .service-icon { font-size:1.7rem; margin-bottom:15px; }
+    .service h3 { font-size:1.12rem; margin-bottom:8px; }
+    .service p { color:var(--muted); font-size:.92rem; }
+    .about-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:55px; align-items:center; }
+    .about-panel {
+      min-height:390px; border-radius:30px; background:linear-gradient(145deg,#0f766e,#164e4a);
+      color:white; padding:38px; display:flex; flex-direction:column; justify-content:end;
+      position:relative; overflow:hidden;
+    }
+    .about-panel:before {
+      content:"✚"; position:absolute; right:30px; top:25px; font-size:10rem; line-height:1;
+      opacity:.08;
+    }
+    .about-panel strong { font:800 2.4rem Manrope,sans-serif; }
+    .about-panel p { color:#d8f3ef; margin-top:8px; }
+    .about-text p { color:var(--muted); margin-bottom:18px; }
+    .checks { display:grid; gap:12px; margin-top:25px; }
+    .check { display:flex; gap:11px; align-items:flex-start; }
+    .check b { color:var(--primary); }
+    .contact { background:#f8fbfb; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .contact-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:30px; }
+    .contact-card h3 { margin-bottom:20px; }
+    .contact-item { display:flex; gap:14px; padding:15px 0; border-bottom:1px solid #edf3f2; }
+    .contact-item:last-child { border-bottom:0; }
+    .contact-item .icon { width:38px; height:38px; border-radius:11px; background:#e8f7f5; display:grid; place-items:center; flex:none; }
+    .contact-item strong { display:block; font-size:.9rem; }
+    .contact-item span,.contact-item a { color:var(--muted); font-size:.92rem; }
+    .hours { width:100%; border-collapse:collapse; }
+    .hours td { padding:10px 0; border-bottom:1px solid #edf3f2; font-size:.91rem; }
+    .hours td:last-child { text-align:right; font-weight:600; }
+    .closed { color:#94a3b8 !important; }
+    .map {
+      margin-top:22px; min-height:230px; border-radius:var(--radius);
+      background:linear-gradient(135deg,#dff7f3,#edf8f7); display:flex; align-items:center; justify-content:center;
+      text-align:center; padding:30px; border:1px solid var(--border);
+    }
+    footer { background:var(--ink); color:#d6e6e4; padding:35px 0; }
+    footer .container { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    footer strong { color:white; }
+    .mobile-toggle { display:none; border:0; background:none; font-size:1.5rem; }
+    @media (max-width:900px) {
+      .hero-grid,.about-grid,.contact-grid { grid-template-columns:1fr; }
+      .service-grid { grid-template-columns:repeat(2,1fr); }
+      .hero { padding-top:60px; }
+      .nav-links { display:none; }
+      .mobile-toggle { display:block; }
+    }
+    @media (max-width:600px) {
+      .container { width:min(100% - 28px,1120px); }
+      .topbar .container { justify-content:center; }
+      .service-grid { grid-template-columns:1fr; }
+      section { padding:65px 0; }
+      .hero { padding:48px 0 55px; }
+      .hero-actions .btn { width:100%; }
+      .logo { font-size:.88rem; }
+      .logo-mark { width:38px; height:38px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span>Cabinet médical — Salé Bettana</span>
+      <a href="tel:0808655817">📞 08 08 65 58 17</a>
+    </div>
+  </div>
+
+  <header>
+    <nav class="container">
+      <a class="logo" href="#accueil" aria-label="Accueil">
+        <span class="logo-mark">✚</span>
+        <span>Dr. NAMBOY Evrard Simplice<small>Médecin généraliste & urgentiste</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#cabinet">Le cabinet</a>
+        <a href="#services">Services</a>
+        <a href="#horaires">Horaires</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="tel:0808655817">Appeler</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Ouvrir le menu" onclick="toggleMenu()">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Médecine générale & urgences</span>
+          <h1>Votre santé, notre <span>priorité.</span></h1>
+          <p>
+            Bienvenue au cabinet médical du Dr. Simplice Évrard NAMBOY,
+            médecin généraliste et urgentiste à Salé Bettana. Un accompagnement
+            médical attentif et adapté aux besoins de chaque patient.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:0808655817">📞 Prendre contact</a>
+            <a class="btn btn-light" href="#services">Découvrir les services</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="doctor-icon">🩺</div>
+          <h3>Dr. Simplice Évrard NAMBOY</h3>
+          <p>Médecin généraliste et urgentiste, diplômé de la Faculté de Médecine de Rabat, avec une expertise en urgences et évacuations sanitaires.</p>
+          <div class="availability">
+            <span class="dot"></span>
+            <span>Cabinet ouvert selon les horaires indiqués ci-dessous</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Nos services</span>
+          <h2>Une prise en charge médicale diversifiée</h2>
+          <p>Le cabinet propose différents services de médecine générale, d'urgence, de diagnostic et de santé préventive.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service">
+            <div class="service-icon">🩺</div>
+            <h3>Médecine générale</h3>
+            <p>Consultations et suivi médical, notamment pour le suivi de grossesse, l'hypertension artérielle et le diabète.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">🚑</div>
+            <h3>Médecine d'urgence</h3>
+            <p>Prise en charge médicale des situations nécessitant une attention rapide.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">❤️</div>
+            <h3>ECG</h3>
+            <p>Électrocardiogramme pour contribuer à l'évaluation médicale et cardiovasculaire.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">🔎</div>
+            <h3>Échographie</h3>
+            <p>Évaluation par échographie selon l'indication médicale.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">🌍</div>
+            <h3>Maladies tropicales</h3>
+            <p>Prise en charge du paludisme et de certaines infections tropicales.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">💊</div>
+            <h3>Contraception</h3>
+            <p>Pose et retrait d'implant contraceptif sous-cutané ainsi que pilule injectable.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">🚗</div>
+            <h3>Visite permis</h3>
+            <p>Examen médical pour le permis de conduire, avec examen de l'acuité visuelle.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cabinet">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <strong>Un suivi adapté à chaque patient</strong>
+          <p>Une approche centrée sur l'écoute, l'évaluation médicale et le suivi.</p>
+        </div>
+        <div class="about-text">
+          <span class="eyebrow">Le cabinet</span>
+          <h2 style="font-size:clamp(2rem,4vw,3rem); margin:16px 0;">Dr. NAMBOY Evrard Simplice</h2>
+          <p>
+            Le cabinet médical du Dr. Simplice Évrard NAMBOY accueille les patients
+            pour des consultations de médecine générale, des besoins en médecine
+            d'urgence et différents examens et actes médicaux.
+          </p>
+          <p>
+            Diplômé de la Faculté de Médecine de Rabat, le Dr. NAMBOY dispose
+            notamment d'une expertise en urgences et évacuations sanitaires.
+          </p>
+          <div class="checks">
+            <div class="check"><b>✓</b><span>Consultations de médecine générale</span></div>
+            <div class="check"><b>✓</b><span>Prise en charge des urgences</span></div>
+            <div class="check"><b>✓</b><span>Examens et actes médicaux</span></div>
+            <div class="check"><b>✓</b><span>Suivi adapté aux besoins du patient</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="horaires" class="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Informations pratiques</span>
+          <h2>Horaires & contact</h2>
+          <p>Retrouvez les horaires du cabinet et les informations nécessaires pour nous contacter.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Horaires d'ouverture</h3>
+            <table class="hours">
+              <tr><td>Lundi</td><td>09:00 – 17:00</td></tr>
+              <tr><td>Mardi</td><td>09:00 – 17:00</td></tr>
+              <tr><td>Mercredi</td><td>09:00 – 17:00</td></tr>
+              <tr><td>Jeudi</td><td>09:00 – 17:00</td></tr>
+              <tr><td>Vendredi</td><td>09:00 – 17:00</td></tr>
+              <tr><td>Samedi</td><td>09:00 – 12:30</td></tr>
+              <tr><td>Dimanche</td><td class="closed">Fermé</td></tr>
+            </table>
+          </div>
+
+          <div class="contact-card" id="contact">
+            <h3>Nous contacter</h3>
+            <div class="contact-item">
+              <div class="icon">📞</div>
+              <div><strong>Téléphone principal</strong><a href="tel:0808655817">08 08 65 58 17</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="icon">📱</div>
+              <div><strong>Téléphone</strong><a href="tel:0770558299">07 70 55 82 99</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="icon">📍</div>
+              <div><strong>Adresse</strong><span>51, Avenue Ben Guérir, Appartement 1, 1er étage, Salé Bettana</span></div>
+            </div>
+            <a class="btn btn-primary" style="width:100%; margin-top:16px;" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=51%20Avenue%20Ben%20Guerir%20Sale%20Bettana%20Maroc">
+              📍 Itinéraire vers le cabinet
+            </a>
+          </div>
+        </div>
+
+        <div class="map">
+          <div>
+            <div style="font-size:2rem; margin-bottom:8px;">📍</div>
+            <h3>Cabinet médical Dr. NAMBOY</h3>
+            <p style="color:#64748b; margin:6px 0 16px;">51, Avenue Ben Guérir — Salé Bettana</p>
+            <a class="btn btn-light" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=51%20Avenue%20Ben%20Guerir%20Sale%20Bettana%20Maroc">Ouvrir Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div><strong>Dr. NAMBOY Evrard Simplice</strong><br>Médecin généraliste & urgentiste</div>
+      <div>© <span id="year"></span> — Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.nav-links');
+      const visible = nav.style.display === 'flex';
+      nav.style.display = visible ? '' : 'flex';
+      if (!visible) {
+        nav.style.position = 'absolute';
+        nav.style.top = '76px';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = '#fff';
+        nav.style.padding = '20px';
+        nav.style.flexDirection = 'column';
+        nav.style.alignItems = 'stretch';
+        nav.style.borderBottom = '1px solid #dbe9e7';
+      }
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
